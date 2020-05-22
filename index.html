@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Shufll.i.ng</title>
+		<meta charset="utf-8">
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="deck.js"></script>
+    <script src="card.js"></script>
+    <script src="deck_collection.js"></script>
+    <script src="card_collection.js"></script>
+    <script src="app.js"></script>
+    <script src="api_client.js"></script>
+	</head>
+	<body>
+    <div id="root"></div>
+        <script>
+            window.onload = async function()
+            {
+                let decks = await getDecks();
+                let cards = await getCards();
+                ReactDOM.render(
+                    React.createElement(App, { decks: decks, cards: cards }),
+                    document.getElementById('root')
+                );
+            };
+        </script>
+  </body>
+</html>
